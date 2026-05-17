@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+    <div class="info" id="home">
+        Register your account if u don't have one.
+    </div>
+
+    <!--NAVBAR-->
+        <nav class="navbar navbar-expand-lg shadow-sm" style="width: 100%;" >
+            <div class="container-fluid"  style="background-color:#0d1b2a">
+                <img src="{% static 'images/logo.png' %}" alt="logo" id="logo"> 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav" class="col-8" style="padding-left: 10%;">
+                    <ul class="navbar-nav" id="nav-element" >
+                        <span style="color: rgb(228, 228, 220);">
+                            <h3>Complaint Management System</h3>
+                        </span>
+                    </ul> 
+                </div>
+            </div>
+        </nav> 
+    <div class="register">
+        <div>
+            <h2 style="text-align: center;">SIGN-IN</h2>
+            <form action="" method="POST" style="background-color: rgba(208, 233, 205, 0.884);padding-top: 2%;">
+                {% csrf_token %}
+                {{form.as_p}}
+                <div style="text-align: center; padding-bottom: 1%;">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--footer-->
+
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <div style="padding-top: 3.5%;">
+                <h5>Complaint Management System</h5>
+                <p>
+                    A simple online platform to register and track complaints efficiently.
+                </p> <br>
+                <div class="footer-links">
+                    <a href="#home">Home <span style="padding-left: 1%; font-weight: bolder;">|</span></a>
+                    <a href="{% url 'login' %}">Log-in <span style="padding-left: 1%; font-weight: bolder;">|</span></a>
+                    <a href="#footer">Contact us <span style="padding-left: 1%; font-weight: bolder;">|</span></a>
+                </div>
+
+            </div>
+
+            <p class="footer-contact">
+                <i class="bi bi-envelope-fill"></i> Email: <span style="color: blue;">support@cms.com </span> | <i
+                    class="bi bi-telephone-outbound-fill"></i> Phone: <span style="color: blue;">+91 98765 43210 </span>
+            </p>
+            <hr>
+            <div class="col-4" style="text-align: left; padding-left: 5%; text-decoration: underline;">
+                <h6>Hear more about us on :</h5>
+                    <i class="bi bi-instagram"> Instagram</i><br>
+                    <i class="bi bi-linkedin"> Linkedin</i> <br>
+                    <i class="bi bi-play-btn-fill"> YouTube</i>
+            </div>
+
+            <p>
+                © 2026 Complaint Management System
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

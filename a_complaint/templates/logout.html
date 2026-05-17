@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+
+<!--Bootstrap css,js,icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<!--Static folder-->
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+    
+<!--Carousel-->
+        <div class="main-carousel" style="margin-top: 1%;">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+                <div class="carouselExampleIndicators">
+                    <div class="carousel-item active">
+                        <img src="{% static 'images/img1.png'%}" id="carousel-img" alt="img2" data-bs-interval="2500">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/img2.jpg'%}" id="carousel-img" alt="img3" data-bs-interval="2500">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/img-3.png'%}" id="carousel-img" alt="img3" data-bs-interval="2500">
+                    </div>
+                </div>
+                <div class="carousel-overlay">
+                    <div class="carousel-content text center">
+                        <h1>Complaint Management System</h1>
+                        <p>“A simple and transparent way to register and track your complaints”</p>
+                        <a href="{% url 'register' %}" class="btn btn-primary me-2">SIGN-IN</a>
+                        <a href="{% url 'login' %}" class="btn btn-outline-light">LOG-IN</a>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev" style="padding-right: 10%;" id="Carousel-button">
+                   <h2><i class="bi bi-chevron-left"></i></h2> 
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next" style="padding-left: 10%;" id="Carousel-button">
+                   <h2><i class="bi bi-chevron-right"></i></h2> 
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div> <br>
+        </div>
+
+</body>
+</html>
