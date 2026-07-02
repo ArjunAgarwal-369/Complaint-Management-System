@@ -5,81 +5,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signin</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"crossorigin="anonymous"></script>
+    <title>Register - Complaint Management System</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
-<body>
-    <div class="info" id="home">
-        Register your account if u don't have one.
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <div class="bg-black text-white text-center py-2 small" id="home">
+        Register your account if you don't have one.
     </div>
 
-    <!--NAVBAR-->
-        <nav class="navbar navbar-expand-lg shadow-sm" style="width: 100%;" >
-            <div class="container-fluid"  style="background-color:#0d1b2a">
-                <img src="{% static 'images/logo.png' %}" alt="logo" id="logo"> 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav" class="col-8" style="padding-left: 10%;">
-                    <ul class="navbar-nav" id="nav-element" >
-                        <span style="color: rgb(228, 228, 220);">
-                            <h3>Complaint Management System</h3>
-                        </span>
-                    </ul> 
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #0d1b2a;">
+        <div class="container-fluid px-3 px-sm-5">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="{% static 'images/logo.png' %}" alt="logo" id="logo" class="me-2" style="max-height: 40px;">
+                <span class="fs-5 fw-bold d-none d-sm-inline ">Complaint Management System</span>
+                <span class="fs-6 fw-bold d-inline d-sm-none">CMS</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" href="{% url 'login' %}">
+                            <i class="bi bi-box-arrow-in-right me-1"></i>Login
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </nav> 
-    <div class="register">
-        <div>
-            <h2 style="text-align: center;">SIGN-IN</h2>
-            <form action="" method="POST" style="background-color: rgba(208, 233, 205, 0.884);padding-top: 2%;">
-                {% csrf_token %}
-                {{form.as_p}}
-                <div style="text-align: center; padding-bottom: 1%;">
-                    <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </nav>
+
+    <div class="container my-5 px-3 flex-grow-1">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                
+                <div class="card shadow-sm border-0" style="border-radius: 12px; overflow: hidden;">
+                    
+                    <div class="card-header text-center py-4 text-white" style="background-color: #0d1b2a;">
+                        <h2 class="fw-bold mb-0">Create Account</h2>
+                        <p class="mb-0 text-white-50 small mt-1">Please supply your details below to begin</p>
+                    </div>
+
+                    <div class="card-body p-4 p-sm-5" style="background-color: rgba(208, 233, 205, 0.45);">
+                        <form action="" method="POST" novalidate>
+                            {% csrf_token %}
+                            
+                            <div class="django-form-fields mb-4">
+                                {{ form.as_p }}
+                            </div>
+                            
+                            <div class="d-grid gap-2 pt-2">
+                                <button type="submit" class="btn btn-success btn-lg shadow-sm fw-bold py-2">
+                                    Register Account
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="card-footer bg-white border-0 text-center py-3">
+                        <p class="mb-0 small text-muted">
+                            Already have an account? <a href="{% url 'login' %}" class="text-decoration-none fw-bold text-success">Log In Here</a>
+                        </p>
+                    </div>
+
                 </div>
-            </form>
+
+            </div>
         </div>
     </div>
 
-    <!--footer-->
+    <footer id="footer" class="bg-dark text-white pt-5 pb-3 mt-auto">
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                
+                <div class="col-12 col-md-5">
+                    <h5 class="fw-bold text-white mb-3">Complaint Management System</h5>
+                    <p class="text-white-50 small mb-3" style="line-height: 1.6;">
+                        A simple online platform to register and track complaints efficiently.
+                    </p>
+                    <div class="footer-links small">
+                        <a href="#home" class="text-white-50 text-decoration-none me-2">Home</a>
+                        <span class="text-secondary">|</span>
+                        <a href="{% url 'login' %}" class="text-white-50 text-decoration-none mx-2">Log-in</a>
+                        <span class="text-secondary">|</span>
+                        <a href="#footer" class="text-white-50 text-decoration-none ms-2">Contact Us</a>
+                    </div>
+                </div>
 
-    <footer id="footer" class="footer">
-        <div class="footer-content">
-            <div style="padding-top: 3.5%;">
-                <h5>Complaint Management System</h5>
-                <p>
-                    A simple online platform to register and track complaints efficiently.
-                </p> <br>
-                <div class="footer-links">
-                    <a href="#home">Home <span style="padding-left: 1%; font-weight: bolder;">|</span></a>
-                    <a href="{% url 'login' %}">Log-in <span style="padding-left: 1%; font-weight: bolder;">|</span></a>
-                    <a href="#footer">Contact us <span style="padding-left: 1%; font-weight: bolder;">|</span></a>
+                <div class="col-12 col-md-4">
+                    <h5 class="fw-bold text-white mb-3">Contact Desk</h5>
+                    <ul class="list-unstyled small text-white-50 d-grid gap-2 mb-0">
+                        <li>
+                            <i class="bi bi-envelope-fill text-info me-2"></i>
+                            Email: <a href="mailto:support@cms.com" class="text-info text-decoration-none">support@cms.com</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone-outbound-fill text-info me-2"></i>
+                            Phone: <span class="text-white-50">+91 98765 43210</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <h5 class="fw-bold text-white mb-3">Follow Channels</h5>
+                    <div class="d-flex justify-content-center justify-content-md-start gap-3 fs-5">
+                        <a href="#" class="text-white-50" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white-50" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white-50" title="YouTube"><i class="bi bi-play-btn-fill"></i></a>
+                    </div>
                 </div>
 
             </div>
 
-            <p class="footer-contact">
-                <i class="bi bi-envelope-fill"></i> Email: <span style="color: blue;">support@cms.com </span> | <i
-                    class="bi bi-telephone-outbound-fill"></i> Phone: <span style="color: blue;">+91 98765 43210 </span>
-            </p>
-            <hr>
-            <div class="col-4" style="text-align: left; padding-left: 5%; text-decoration: underline;">
-                <h6>Hear more about us on :</h5>
-                    <i class="bi bi-instagram"> Instagram</i><br>
-                    <i class="bi bi-linkedin"> Linkedin</i> <br>
-                    <i class="bi bi-play-btn-fill"> YouTube</i>
+            <hr class="border-secondary my-4">
+            
+            <div class="row">
+                <div class="col-12 text-center text-white-50 small">
+                    <p class="mb-0">&copy; 2026 Complaint Management System. All Rights Reserved.</p>
+                </div>
             </div>
-
-            <p>
-                © 2026 Complaint Management System
-            </p>
         </div>
     </footer>
 

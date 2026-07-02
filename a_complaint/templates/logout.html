@@ -14,40 +14,42 @@
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
 </head>
-<body>
-    
+<body> 
 <!--Carousel-->
-        <div class="main-carousel" style="margin-top: 1%;">
+        <div class="main-carousel mt-5">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
-                <div class="carouselExampleIndicators">
+                <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{% static 'images/img1.png'%}" id="carousel-img" alt="img2" data-bs-interval="2500">
+                        <img src="{% static 'images/img1.png'%}" class="carousel-img w-100" alt="img1">
                     </div>
                     <div class="carousel-item">
-                        <img src="{% static 'images/img2.jpg'%}" id="carousel-img" alt="img3" data-bs-interval="2500">
+                        <img src="{% static 'images/img2.jpg'%}" class="carousel-img w-100" alt="img2">
                     </div>
                     <div class="carousel-item">
-                        <img src="{% static 'images/img-3.png'%}" id="carousel-img" alt="img3" data-bs-interval="2500">
+                        <img src="{% static 'images/img-3.png'%}" class="carousel-img w-100" alt="img3">
                     </div>
                 </div>
+
                 <div class="carousel-overlay">
-                    <div class="carousel-content text center">
+                    <div class="carousel-content">
                         <h1>Complaint Management System</h1>
                         <p>“A simple and transparent way to register and track your complaints”</p>
                         <a href="{% url 'register' %}" class="btn btn-primary me-2">SIGN-IN</a>
                         <a href="{% url 'login' %}" class="btn btn-outline-light">LOG-IN</a>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev" style="padding-right: 10%;" id="Carousel-button">
+
+                <button class="carousel-control-prev carousel-btn pe-5" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
                    <h2><i class="bi bi-chevron-left"></i></h2> 
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next" style="padding-left: 10%;" id="Carousel-button">
+                <button class="carousel-control-next carousel-btn ps-5" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
                    <h2><i class="bi bi-chevron-right"></i></h2> 
                     <span class="visually-hidden">Next</span>
                 </button>
+
             </div> <br>
         </div>
 
